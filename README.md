@@ -2,7 +2,7 @@
 
 In this project, I have done the following:
 
-ol>
+<ol>
 <li><b>Forked the repository at https://github.com/rdpeng/ExData_Plotting1</li>
 <li><b>Created four scripts (plot1.R, plot2.R, plot3.R, plot3.R) that read in previously downloaded
 data, process it, and then create plots in PNG form.
