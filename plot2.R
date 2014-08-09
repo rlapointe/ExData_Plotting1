@@ -17,8 +17,8 @@ power_data_cut_down$DateTime = strptime(power_data_cut_down$DateTime, format = '
 power_data_cut_down$Global_active_power = as.numeric(as.character(power_data_cut_down$Global_active_power))
 
 # Plot the data to PNG format
-png(file = "plot1.png")
-hist(power_data_cut_down$Global_active_power, col = "red",
-     xlab = "Global Active Power (kilowatts)", ylab = "Frequency",
-     main = "Global Active Power", border = "black")
+png(file = "plot2.png")
+plot(power_data_cut_down$DateTime, power_data_cut_down$Global_active_power,
+     ylab = "Global Active Power (kilowatts)", xlab = "",
+     main = "", type="l")
 dev.off()

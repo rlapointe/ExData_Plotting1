@@ -14,11 +14,17 @@ power_data_cut_down$DateTime = paste(power_data_cut_down$Date, power_data_cut_do
 power_data_cut_down$DateTime = strptime(power_data_cut_down$DateTime, format = '%Y-%m-%d %H:%M:%S')
 
 # Transform the value fields into numeric for plotting
-power_data_cut_down$Global_active_power = as.numeric(as.character(power_data_cut_down$Global_active_power))
+power_data_cut_down$Sub_metering_1 = as.numeric(as.character(power_data_cut_down$Sub_metering_1))
+power_data_cut_down$Sub_metering_2 = as.numeric(as.character(power_data_cut_down$Sub_metering_2))
+power_data_cut_down$Sub_metering_3 = as.numeric(as.character(power_data_cut_down$Sub_metering_3))
 
 # Plot the data to PNG format
-png(file = "plot2.png")
-plot(power_data_cut_down$DateTime, power_data_cut_down$Global_active_power,
-     ylab = "Global Active Power (kilowatts)", xlab = "",
+png(file = "plot3.png")
+plot(power_data_cut_down$DateTime, power_data_cut_down$Sub_metering_1,
+     ylab = "Energy sub metering", xlab = "",
      main = "", type="l")
+lines(power_data_cut_down$DateTime, power_data_cut_down$Sub_metering_2, col = 'red')
+lines(power_data_cut_down$DateTime, power_data_cut_down$Sub_metering_3, col = 'blue')
+legend("topright", lty = c(1, 1, 1), col = c("black", "red", "blue"), 
+       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 dev.off()
